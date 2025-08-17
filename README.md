@@ -23,5 +23,3 @@
 git clone https://github.com/username/repo-name.git
 cd repo-name
 pip install -r requirements.txt
-
-ブランチしたよ
