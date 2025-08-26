@@ -18,9 +18,15 @@ const server = http.createServer((req, res)=>{
         const css = fs.readFileSync('public/css/style.css');
         res.writeHead(200, { 'Content-Type': 'text/css' });
         res.end(css);
-    }else if (req.url == '/user'){
-        // user.htmlを返す
-        const html = fs.readFileSync('public/user.html');
+    }else if (req.url == '/about'){
+        // about.htmlを返す
+        const html = fs.readFileSync('public/about.html');
+        res.writeHead(200, {"Content-Type":"text/html"});
+        res.end(html);
+    }
+    else if (req.url == '/app1'){
+        // app1.htmlを返す
+        const html = fs.readFileSync('public/app1.html');
         res.writeHead(200, {"Content-Type":"text/html"});
         res.end(html);
     }

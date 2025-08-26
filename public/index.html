@@ -1,19 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EMG Web App stacks</title>
+    <!-- 外部CSSの読み込み -->
     <link rel="stylesheet" href="css/style.css">
     <!-- 内部スタイルシート（外部スタイルシートの上書きができる） -->
     <style>
     h1 {
-      color: black; 
+      color: black;
     }
     </style>
     <!-- 内部スタイルシート終わり -->
 </head>
+
 <body>
+  <!-- ヘッダー & ナビゲーション -->
+  <header>
+    <nav class = "navbar">
+      <div class = "nav-brand">EMG Web App stacks</div>
+      <ul class = "nav-menu">
+        <li class = "nav-button"><a href = "/about">ABOUT US</a></li>
+        <li  class = "nav-button"><a href = "">HOME</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- アウトラインセクション -->
+     <section class = "outline">
+      <h2>Outline</h2>
+      <p>
+        このサイトは、EMGで取り組んだWebアプリケーション開発
+        の成果をまとめたポートフォリオです。アイデアの発案から
+        デザイン、設計、実装、テストに至るまで、すべての工程を
+        協力して進めてきました。また、完成したアプリケーション
+        の紹介だけでなく、開発の過程や学びの記録も共有しています。
+      </p>
+     </section>
+
+     <!-- Web Apps セクション-->
+      <section class = "web-apps">
+        <h2>Wep Apps</h2>
+        <div class = "apps-grid">
+          <!-- カードを6つ並べる -->
+           <article class = "app-card">
+            <img src = "../img/test01.png" alt = "test01"/>
+            <h3>サブ見出し</h3>
+            <p>ここに概要テキストが入ります。サンプルテキストなので後で実際の内容に置き換えてください。</p>
+           </article>
+
+           <article class = "app-card">
+            <img src = "img/test02.png" alt = "test01"/>
+            <h3>サブ見出し</h3>
+            <p>ここに概要テキストが入ります。サンプルテキストなので後で実際の内容に置き換えてください。</p>
+           </article>
+
+           <article class = "app-card">
+            <img src = "img/test03.png" alt = "test01"/>
+            <h3>サブ見出し</h3>
+            <p>ここに概要テキストが入ります。サンプルテキストなので後で実際の内容に置き換えてください。</p>
+           </article>
+
+           <article class = "app-card">
+            <img src = "img/test04.png" alt = "test01"/>
+            <h3>サブ見出し</h3>
+            <p>ここに概要テキストが入ります。サンプルテキストなので後で実際の内容に置き換えてください。</p>
+           </article>
+
+           <article class = "app-card">
+            <img src = "img/test05.png" alt = "test01"/>
+            <h3>サブ見出し</h3>
+            <p>ここに概要テキストが入ります。サンプルテキストなので後で実際の内容に置き換えてください。</p>
+           </article>
+
+           <article class = "app-card">
+            <img src = "img/test06.png" alt = "test01"/>
+            <h3>サブ見出し</h3>
+            <p>ここに概要テキストが入ります。サンプルテキストなので後で実際の内容に置き換えてください。</p>
+           </article>
+        </div>
+      </section>
+  </main>
     <h1>index.htmlの内容を表示しています</h1>
+
+  <!-- フッター（必要に応じて追記） -->
+  <footer>
+    <p>© 2025 EMG Web App stacks</p>
+  </footer>
+  
 </body>
 </html>
