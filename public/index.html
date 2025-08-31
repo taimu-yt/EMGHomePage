@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- 内部スタイルシート（外部スタイルシートの上書きができる） -->
     <style>
-    h1 {
-      color: black;
-    }
+
     </style>
     <!-- 内部スタイルシート終わり -->
 </head>
@@ -18,76 +16,55 @@
 <body>
   <!-- ヘッダー & ナビゲーション -->
   <header>
-    <nav class = "navbar">
-      <div class = "nav-brand">EMG Web App stacks</div>
-      <ul class = "nav-menu">
-        <li class = "nav-button"><a href = "/about">ABOUT US</a></li>
-        <li  class = "nav-button"><a href = "">HOME</a></li>
-      </ul>
-    </nav>
+    <div class = "container">
+      <div class = "header-left">EMG Web App stacks</div>
+      <div class = "header-right">
+        <a href="/about">ABOUT US</a>
+        <a href="/">HOME</a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <!-- アウトラインセクション -->
-     <section class = "outline">
+  <!-- アウトラインセクション -->
+  <div class = "outline">
+    <div class = "container">
       <h2>Outline</h2>
-      <p>
-        このサイトは、EMGで取り組んだWebアプリケーション開発
-        の成果をまとめたポートフォリオです。アイデアの発案から
-        デザイン、設計、実装、テストに至るまで、すべての工程を
-        協力して進めてきました。また、完成したアプリケーション
-        の紹介だけでなく、開発の過程や学びの記録も共有しています。
-      </p>
-     </section>
+      <p>このサイトは、EMGで取り組んだWebアプリケーション開発の成果をまとめたポートフォリオです。アイデアの発案からデザイン、設計、実装、テストに至るまでを協力して進めてきました。また、完成したアプリケーションの紹介だけでなく、開発の過程や学びの記録も共有しています。</p>
+    </div>
+  </div>
 
-     <!-- Web Apps セクション-->
-      <section class = "web-apps">
-        <h2>Wep Apps</h2>
-        <div class = "apps-grid">
-          <!-- カードを6つ並べる -->
-           <article class = "app-card">
-            <img src = "../img/test01.png" alt = "test01"/>
-            <h3>サブ見出し</h3>
-            <p>ここに概要テキストが入ります。サンプルテキストなので後で実際の内容に置き換えてください。</p>
-           </article>
+  <!-- Web Apps セクション -->
+  <div class = "webApp">
+    <div class = "container">
+      <h2>Web Apps</h2>
+      <div class = "app">
+        <img src="img/app01.png" alt="app01">
+        <h4>三角関数しか勝たん</h4>
+        <p>かっこよくて便利でイかしたやつ</p>
+      </div>
+      <div class = "app">
+        <img src="img/app02.png" alt="app02">
+        <h4>アプリ名2</h4>
+        <p>アプリの概要1</p>
+      </div>
+      <div class = "app">
+        <img src="img/app03.png" alt="app03">
+        <h4>アプリ名3</h4>
+        <p>アプリの概要1</p>
+      </div>
+      <div class = "app">
+        <img src="img/app04.png" alt="app04">
+        <h4>アプリ名4</h4>
+        <p>アプリの概要1</p>
+      </div>
+    </div>
+  </div>
 
-           <article class = "app-card">
-            <img src = "img/test02.png" alt = "test01"/>
-            <h3>サブ見出し</h3>
-            <p>ここに概要テキストが入ります。サンプルテキストなので後で実際の内容に置き換えてください。</p>
-           </article>
-
-           <article class = "app-card">
-            <img src = "img/test03.png" alt = "test01"/>
-            <h3>サブ見出し</h3>
-            <p>ここに概要テキストが入ります。サンプルテキストなので後で実際の内容に置き換えてください。</p>
-           </article>
-
-           <article class = "app-card">
-            <img src = "img/test04.png" alt = "test01"/>
-            <h3>サブ見出し</h3>
-            <p>ここに概要テキストが入ります。サンプルテキストなので後で実際の内容に置き換えてください。</p>
-           </article>
-
-           <article class = "app-card">
-            <img src = "img/test05.png" alt = "test01"/>
-            <h3>サブ見出し</h3>
-            <p>ここに概要テキストが入ります。サンプルテキストなので後で実際の内容に置き換えてください。</p>
-           </article>
-
-           <article class = "app-card">
-            <img src = "img/test06.png" alt = "test01"/>
-            <h3>サブ見出し</h3>
-            <p>ここに概要テキストが入ります。サンプルテキストなので後で実際の内容に置き換えてください。</p>
-           </article>
-        </div>
-      </section>
-  </main>
-    <h1>index.htmlの内容を表示しています</h1>
-
-  <!-- フッター（必要に応じて追記） -->
+  <!-- フッター -->
   <footer>
-    <p>© 2025 EMG Web App stacks</p>
+    <div class = "container">
+      <p>© 2025 EMG Web App stacks</p>
+    </div>
   </footer>
   
 </body>

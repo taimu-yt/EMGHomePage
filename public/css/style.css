@@ -9,101 +9,130 @@ body{
   padding:0px;
 }
 
-/* ヘッダー部分 */
+.container{
+  width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+
+/* ヘッダー */
 header{
-  margin:0px;
-  padding:0px;
-  height:100px;
-  background-color: #eaf2ff;
-  border-bottom:1px solid black;
+  height:112px;
+  background-color:#215F9A;
+  border-bottom:3px solid #000000;
 }
 
-/* .nav-bar{
-  margin:auto 0px auto 0px;
-} */
-
-.nav-brand{
+.header-left{
   float:left;
-  font-size:32px;
-  font-weight: bold;
-  line-height:100px;
-  margin:0px 0px 0px 20px;
+  font-size:40px;
+  line-height:112px;
+  font-weight:bold;
+  color:#FFFFFF;
 }
 
-.nav-button{
+.header-right a{
   float:right;
-  margin:0px 30px 0px 0px;
+  font-size:24px;
+  color:#FFFFFF;
+  line-height:112px;
+  margin-right:30px;
+}
+
+/* アウトライン */
+.outline h2{
+  font-size:56px;
+  text-decoration: underline;
+  margin:25px 0px 15px 0px;
+  text-align: center;
+}
+
+.outline p{
+  font-size:22px;
+  margin:10px 0px;
+}
+
+/* Wep App */
+.webApp{
+  text-align:center;
+}
+
+
+.webApp h2{
+  font-size:56px;
+  text-decoration: underline;
+  margin:25px 0px;
+}
+
+.app{
+  float:left;
+  width:50%;
+  margin-bottom:30px;
+}
+
+.webApp img{
+  width:350px;
+  height:350px;
+}
+
+.webApp h4{
+  font-size:30px;
+  margin:10px 0px;
+}
+
+.webApp p{
+  font-size:24px;
+  color:#252525;
+  margin:5px 0px;
+}
+
+/* フッター */
+footer{
+  clear:both;
+  height:80px;
+  border-top:1px solid #454545;
+  background-color: #215F9A;
+}
+
+footer p{
+  color:#FFFFFF;
+  line-height:80px;
+  font-size:18px;
+  margin:0px;
+}
+
+/* about.html */
+
+/* emg */
+.emg{
+  margin:50px 0px 0px 100px;
+}
+
+.emg-left{
+  float:left
+}
+
+.emg h1{
+  font-size:64px;
+  margin:0px;
+}
+
+.emg ul{
+  padding:0px;
+}
+
+.emg li{
+  font-size:24px;
   list-style:none;
-  line-height:100px;
 }
 
-a,a:hover,a:visited{
-    color: inherit;
+.emg-right{
+  float:right;
+  margin:0px 200px 0px 0px;
 }
 
-
-/* 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.emg img{
+  width:200px;
+  height:200px;
 }
 
-body{
-    font-family: "Segoe UI", "sans-serif";
-    line-height:1.6;
-    color: #333;
-    background-color: #fafafa;
-    padding: 20px;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #EAF2FF;
-  padding: 10px 20px;
-  border-radius: 4px;
-}
-
-.nav-brand {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #000;
-}
-
-.nav-menu {
-  list-style: none;
-  display: flex;
-}
-
-.nav-menu li + li {
-  margin-left: 15px;
-}
-
-.nav-menu a {
-  color: #000;
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-h2 {
-  margin-bottom: 10px;
-  color: #000000;
-}
-
-.outline {
-  background: #fff;
-  padding: 15px 20px;
-  margin-top: 20px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.outline p {
-  margin-top: 8px;
-  line-height: 1.5;
-}
-
- */
