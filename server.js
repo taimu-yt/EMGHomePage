@@ -30,6 +30,17 @@ const server = http.createServer((req, res)=>{
         res.writeHead(200, {"Content-Type":"text/html"});
         res.end(html);
     }
+    else if (req.url.startsWith('/img/')) {
+        const imgPath = path.join(__dirname, 'public', req.url);
+        fs.readFile(imgPath, (err, data) => {
+            if (err) {
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            return res.end('Image not found');
+            }
+        res.writeHead(200, { 'Content-Type': 'image/' + path.extname(imgPath).slice(1) });
+        res.end(data);
+        });
+    }
     else{
         // それ以外は404
         res.writeHead(404, { 'Content-Type': 'text/plain' });
