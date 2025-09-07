@@ -1,0 +1,430 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app {
+  font-family: sans-serif;
+  padding: 12px;
+  height: 100vh;               /* ビューポート全体を使う */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* layout を縮小可能にして右側をスクロールさせる */
+.layout {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex: 1 1 auto;
+  min-height: 0;               /* children の overflow を有効にするために必要 */
+  overflow: hidden;            /* 横スクロールは内部で制御 */
+}
+
+/* sidebar 固定幅（折りたたみ時も flex で制御） */
+.sidebar {
+  flex: 0 0 260px;
+  max-width: 260px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 折りたたみ時の幅 */
+.layout.collapsed .sidebar {
+  flex: 0 0 56px;
+  max-width: 56px;
+}
+
+/* 右側コンテンツは縮小可能にしてスクロールさせる */
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0; /* children の overflow を機能させるために必須 */
+  overflow: auto;              /* 縦横ともに必要に応じてスクロール */
+  box-sizing: border-box;
+  padding-left: 0;
+}
+
+/* 左タイトル列を追加するためのレイアウト */
+.gantt-with-left { display:flex; gap:12px; align-items:flex-start; }
+
+/* 左列 */
+.gantt-left {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.gantt-left .left-header {
+  padding: 10px 12px;
+  font-weight:700;
+  border-bottom:1px solid #eee;
+  background:#fff;
+}
+.gantt-left .left-list { max-height: 500px; overflow:auto; }
+
+/* timeline header row (placeholder left + timeline right) */
+.timeline-row { margin-bottom: 6px; }
+
+/* rows container */
+.rows { background: white; }
+
+/* ensure left-row style still applies when used as left cell above */
+.left-row { border-bottom:1px solid #f4f4f4; }
+.left-row.selected { background: rgba(25,118,210,0.08); }
+
+/* left cell inner text */
+.left-title { font-weight:700; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.left-date { display: none !important; }
+
+/* 既存 gantt スタイルは右側チャートに適用される */
+.gantt { border:1px solid #ddd; border-radius:6px; }
+
+/* タイムライン列 (幅はJSXで設定) */
+.timeline { background:#fafafa; border-bottom:1px solid #eee; }
+
+/* 行高さは大きめに */
+.track-area { position:relative; padding:10px; }
+.track-row { height:56px; position:relative; margin-bottom:8px; }
+
+/* タスク棒の中身は非表示にする（左列で表示） */
+.task { position:absolute; height:52px; border-radius:6px; color:white; box-sizing:border-box; overflow:hidden; cursor:pointer; transition:box-shadow .12s, transform .08s; }
+.task:hover { box-shadow:0 6px 14px rgba(0,0,0,0.12); transform:translateY(-2px); }
+.task.selected { outline:3px solid rgba(255,255,255,0.2); box-shadow:0 8px 18px rgba(0,0,0,0.18); }
+
+/* その他 */
+.current { margin: 0 8px; }
+.nav button { margin:0 6px; }
+@media (max-width:600px) { .time-label{font-size:11px} }
+
+/* Excel風グリッド用スタイル */
+.gantt-excel {
+  width: 100%;
+  box-sizing: border-box;
+  /* 高さは親に委ねる */
+}
+
+.excel-grid {
+  background: white;
+  overflow: auto;
+  box-sizing: border-box;
+  display: grid;
+}
+
+/* 共通セル */
+.cell {
+  border-bottom: 1px solid #f4f4f4;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* header */
+.cell.header-left { background:#fff; }
+.cell.header { background:#fafafa; font-weight:600; }
+
+/* weekend colors */
+.cell.header.sun { color: #e53935; }
+.cell.header.sat { color: #1976d2; }
+
+/* left column */
+.left-cell { background: #fff; }
+
+/* task bar inside grid using grid positioning */
+.task-bar {
+  z-index: 5;
+}
+
+/* task-bar handles + cursor */
+.task-bar { position: relative; }
+.task-bar > div[data-handle="left"],
+.task-bar > div[data-handle="right"] {
+  background: rgba(0,0,0,0.06);
+}
+.task-bar > div[data-handle="left"]:active,
+.task-bar > div[data-handle="right"]:active,
+.task-bar:active {
+  cursor: grabbing;
+}
+
+/* preview visual tweak: when selected we already add outline */
+.task-bar.selected { transform: translateY(-1px); transition: box-shadow .12s; }
+
+/* selected */
+.left-cell.selected { background: rgba(25,118,210,0.06); }
+.task-bar.selected { outline: 2px solid rgba(255,255,255,0.18); }
+
+/* small responsive tweak */
+@media (max-width: 600px) {
+  .excel-grid { gridAutoRows: 48px; }
+  .task-bar { height: 28px; }
+  .left-cell { padding: 6px 8px; }
+}
+
+/* left column メンバー表示 */
+.left-members { font-size:12px; color:#555; opacity:0.95; }
+
+/* フォームのメンバー入力幅調整（必要なら上書き） */
+.add-form input[type="text"] { min-width: 120px; }
+
+/* 更新ボタン（明るい水色） */
+.btn-update {
+  background: #b3e5fc;
+  color: #004d60;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 4px;
+}
+.btn-update:hover { background: #81d4fa; }
+
+/* 追加ボタンの軽いスタイル（任意） */
+.btn-add {
+  background: #f5f5f5;
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 4px;
+}
+.btn-add:hover { background: #eee; }
+
+/* small calendar styles (basic, can be adjusted) */
+.small-calendar {
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  overflow: hidden; /* はみ出し防止 */
+  box-sizing: border-box;
+}
+
+/* 日付ボタンをセルサイズに合わせる */
+.small-cal-grid { width: 100%; box-sizing: border-box; }
+.small-cal-day {
+  box-sizing: border-box;
+  width: 100%;
+  height: 34px; /* 固定高さでセル内に収める */
+  padding: 4px; /* 内側余白を小さめに */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+}
+
+/* ナビボタンは小さめ表示 */
+.small-cal-nav-btn {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+/* layout: sidebar + content */
+.layout { display:flex; gap:12px; align-items:flex-start; }
+/* sidebar */
+.sidebar {
+  width: 260px;
+  box-sizing: border-box;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.sidebar .sidebar-section { background:#fff; border:1px solid #eee; padding:10px; border-radius:6px; }
+
+/* adjust content area to take remaining space */
+.content { flex:1; }
+
+/* tweak toolbar rules (kept for compatibility) */
+.toolbar { display:flex; justify-content:flex-start; align-items:flex-start; gap:12px; margin-bottom:12px; }
+
+/* ensure small calendar fits sidebar */
+.small-calendar { width: 100%; box-sizing: border-box; }
+
+/* サイドバー折りたたみトグル */
+.sidebar-toggle { padding: 8px; display:flex; justify-content:flex-end; }
+.sidebar-toggle button {
+  width:36px; height:28px; border-radius:4px; border:none; background:#f5f5f5; cursor:pointer;
+}
+
+/* collapsed 時のレイアウト調整 */
+.layout.collapsed .sidebar {
+  width: 56px;
+  transition: width .18s ease;
+}
+.layout .sidebar { transition: width .18s ease; }
+
+/* 折りたたみ時にフル表示要素を隠し、コンパクト要素を表示 */
+.layout.collapsed .full-view { display: none !important; }
+.layout.collapsed .compact-view { display: flex !important; }
+.layout.collapsed .full-nav { display: none !important; }
+.layout.collapsed .compact-nav { display: block !important; }
+
+/* 折りたたみ時はカレンダーを非表示 */
+.layout.collapsed .small-calendar-section { display: none !important; }
+
+/* ボタンのミニ表示調整 */
+.layout.collapsed .sidebar button {
+  padding: 6px;
+  min-width: 0;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+}
+
+/* レスポンシブレイアウト調整: サイドバー展開時に content がはみ出さないようにする */
+.app {
+  font-family: sans-serif;
+  padding: 12px;
+  height: 100vh;               /* ビューポート全体を使う */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* content を縦方向に伸縮させ、内部ガント領域をスクロール可能にする */
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0; /* children の overflow を機能させるために必須 */
+}
+
+/* 追加フォームは固定高さ（コンテンツの上部） */
+.add-form {
+  flex: 0 0 auto;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+/* ガント全体を包むラッパー：余った高さを使い縦スクロール可能に */
+.gantt-wrap {
+  flex: 1 1 auto;
+  min-height: 0; /* これがないと内部がはみ出す */
+  overflow: auto; /* 縦横どちらも必要に応じてスクロール */
+  box-sizing: border-box;
+}
+
+/* 内部 Excel グリッドは幅に合わせ横スクロール、行が増えれば縦スクロールは .gantt-wrap に委ねる */
+.excel-grid {
+  overflow: visible; /* 横スクロールは親 .gantt-wrap が扱うため visible に */
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ガント領域のスクロール挙動改善 */
+.gantt-excel {
+  height: 100%;
+  min-height: 0; /* flex 内で正しく縮むようにする */
+  box-sizing: border-box;
+}
+
+/* Excel グリッドは親の高さに合わせてスクロール可能にする */
+.excel-grid {
+  display: grid; /* 明示 */
+  overflow: auto;    /* 行が増えたらここでスクロール */
+  max-height: 100%;
+  box-sizing: border-box;
+}
+
+/* 親ラッパーがスクロールを管理する設定（既存 .gantt-wrap の補完） */
+.gantt-wrap {
+  min-height: 0; /* これがないと子がはみ出すことがある */
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+/* 小画面対応：フォームとガントが縦に並ぶ場合でもスクロールさせる */
+@media (max-height: 700px), (max-width: 900px) {
+  .gantt-wrap { max-height: calc(100vh - 220px); } /* 必要に応じて調整 */
+}
+
+/* 小画面ではサイドバー自体を自動で折りたたむ（任意） */
+@media (max-width: 900px) {
+  .sidebar { flex: 0 0 56px; max-width: 56px; }
+  .layout:not(.collapsed) .small-calendar-section { display:none; }
+  .layout:not(.collapsed) .full-view { display:none !important; }
+  .layout:not(.collapsed) .compact-view { display:flex !important; }
+}
+
+/* 既存の sidebar / layout スタイルはそのまま */
+
+/* レイアウトが flex のときに子要素の overflow を正しく動作させるための補助 */
+html, body, #root {
+  height: 100%;
+}
+
+/* flex コンテナ内の子が縮むようにする（スクロールを有効にするために重要） */
+.layout,
+.content,
+.gantt-wrap,
+.gantt-excel,
+.excel-grid {
+  min-height: 0;
+}
+
+/* ガント全体の縦スクロールを親で管理 */
+.gantt-wrap {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+
+/* 内部グリッド（行数が増えたらここでスクロールさせる） */
+.excel-grid {
+  overflow: auto;
+  max-height: none;
+  align-content: start; /* 行が増えても上から詰める */
+  box-sizing: border-box;
+}
+
+/* scrollable body grid for Gantt rows */
+.excel-header { /* ヘッダは固定表示 */ }
+.excel-body {
+  flex: 1 1 auto;
+  min-height: 0; /* flex 内で正しく縮むために必須 */
+  overflow: auto;
+}
+.excel-body-grid {
+  /* grid-auto-rows は JSX で設定しているためここでは補助のみ */
+  box-sizing: border-box;
+  width: 100%;
+}
