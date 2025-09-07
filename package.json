@@ -11,5 +11,8 @@
   "description": "",
   "devDependencies": {
     "http": "^0.0.1-security"
+  },
+  "dependencies": {
+    "grapheme-splitter": "^1.0.4"
   }
 }
