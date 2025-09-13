@@ -1,0 +1,16 @@
+.app-style {
+  min-height: 50vh;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 4px solid #2acaca;
+  border-radius: 8px;
+}
