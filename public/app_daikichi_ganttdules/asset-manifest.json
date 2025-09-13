@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/app_daikichi_ganttdules/static/css/main.829facb8.css",
+    "main.js": "/app_daikichi_ganttdules/static/js/main.e48794e7.js",
+    "index.html": "/app_daikichi_ganttdules/index.html",
+    "main.829facb8.css.map": "/app_daikichi_ganttdules/static/css/main.829facb8.css.map",
+    "main.e48794e7.js.map": "/app_daikichi_ganttdules/static/js/main.e48794e7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.829facb8.css",
+    "static/js/main.e48794e7.js"
+  ]
+}

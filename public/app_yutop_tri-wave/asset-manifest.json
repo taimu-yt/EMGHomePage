@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/app_yutop_tri-wave/static/css/main.3b71cc2a.css",
+    "main.js": "/app_yutop_tri-wave/static/js/main.13dc44ce.js",
+    "index.html": "/app_yutop_tri-wave/index.html",
+    "main.3b71cc2a.css.map": "/app_yutop_tri-wave/static/css/main.3b71cc2a.css.map",
+    "main.13dc44ce.js.map": "/app_yutop_tri-wave/static/js/main.13dc44ce.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3b71cc2a.css",
+    "static/js/main.13dc44ce.js"
+  ]
+}
