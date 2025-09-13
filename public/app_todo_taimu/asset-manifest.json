@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/app_todo_taimu/static/css/main.e6c13ad2.css",
+    "main.js": "/app_todo_taimu/static/js/main.23bd5db2.js",
+    "index.html": "/app_todo_taimu/index.html",
+    "main.e6c13ad2.css.map": "/app_todo_taimu/static/css/main.e6c13ad2.css.map",
+    "main.23bd5db2.js.map": "/app_todo_taimu/static/js/main.23bd5db2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.23bd5db2.js"
+  ]
+}
