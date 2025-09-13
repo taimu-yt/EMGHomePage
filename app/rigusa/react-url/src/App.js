@@ -43,12 +43,24 @@ function App() {
 
   const handleDeleteBookmark = (id) => {
 
-    fetch(`{API_URL}/${id}`,{
+    fetch(`http://localhost:3001/api/bookmarks/${id}`,{
       method: 'DELETE',
     })
+    .then(res => {
+      if(!res.ok){
+        throw new Error('responded error')
+      }
+      return res.json();
+    })
+
     .then(() => {
       const newBookmarks = bookmarks.filter((bookmark) => bookmark.id !== id);
     setBookmarks(newBookmarks);
+    })
+
+    .catch(error => {
+      console.error("Failed to delete bookmark:", error);
+      alert("削除に失敗しました。");
     });
   };
 

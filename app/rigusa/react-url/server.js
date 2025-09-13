@@ -48,9 +48,13 @@ app.delete('/api/bookmarks/:id', (req, res) => {
   const id = req.params.id;
   db.run(`DELETE FROM bookmarks WHERE id = ?`, id, function(err) {
     if (err) {
-      return console.log(err.message);
+      // 失敗した場合、エラーメッセージとステータス500を返す
+      console.log(err.message);
+      return res.status(500).json({ error: err.message });
     }
-    res.json({ message: 'Deleted successfully', id });
+    // 成功した場合、成功メッセージとステータス200を返す
+    console.log(`Row(s) deleted: ${this.changes}`);
+    res.status(200).json({ message: 'Deleted successfully', id });
   });
 });
 
