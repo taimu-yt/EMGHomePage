@@ -106,6 +106,38 @@ header{
   margin-bottom:30px;
 }
 
+/* 画像ボタンの共通スタイル */
+a.img-btn {
+  display: inline-block;         /* インライン画像でもボタン化 */
+  overflow: hidden;              /* 画像はみ出し防止 */
+  border-radius: 8px;            /* 角丸（お好みで） */
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  transition: all 0.2s ease;     /* アニメーション */
+}
+
+/* 画像自体を100%に広げる */
+a.img-btn img {
+  display: block;
+  /* width: 100%; */
+  height: auto;
+  vertical-align: bottom;
+}
+
+/* hover 時にちょっと浮かせる */
+a.img-btn:hover {
+  transform: translateY(-2px);
+  -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, .4);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, .4);
+}
+
+/* active（クリック中）は沈ませる */
+a.img-btn:active {
+  transform: translateY(3px);
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+}
+
 .webApp img{
   width:350px;
   height:350px;
